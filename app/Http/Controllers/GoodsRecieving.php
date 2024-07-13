@@ -13,7 +13,6 @@ class GoodsRecieving extends Controller
         $r->validate([
             'Quantity'=>['required','min:0.001'],
         ]);
-
         Inventory::create([
             'Quantity' => $r->Quantity,
             'TransactionType' => 'in',

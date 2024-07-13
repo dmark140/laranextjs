@@ -42,5 +42,6 @@ Route::post('/InsertItem', [ItemMaster::class, 'store'])
                 ->middleware('auth')
                 ->name('InsertItem');
 
-
-// Route::post('/InsertItem', [InsertItem::class,'store'] )->name('InsertItem');
+Route::post('/insertInventory', [InsertItem::class, 'store'])
+    ->middleware('auth')
+    ->name('InsertItem');

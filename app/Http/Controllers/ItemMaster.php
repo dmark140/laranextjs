@@ -13,7 +13,7 @@ class ItemMaster extends Controller
     public function store(Request $request )
     {
         $request->validate([
-            'ItemCode' =>['required','string'],
+            'ItemCode' =>['required','string' ,'unique:item_masters'],
             'ItemName' =>['required','string'],
             'PurchasePrice' =>['required','numeric','min:0.01'],
             'SellingPrice' =>['required','numeric','gt:PurchasePrice','min:0.01'],

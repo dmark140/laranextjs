@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('inventories', function (Blueprint $table) {
-            $table->unsignedBigInteger("fid");
-            $table->foreign("fid")->references("id")->on("item_masters");
+            $table->id();
+            $table->foreignId('item_id')->references('id')->on('item_masters')->nullable()->constrained();
             $table->float("Quantity");
             $table->string("TransactionType");
             $table->string("void")->default("1");
