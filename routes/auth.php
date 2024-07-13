@@ -6,6 +6,8 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\InsertItem;
+use App\Http\Controllers\ItemMaster;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
@@ -35,3 +37,10 @@ Route::post('/email/verification-notification', [EmailVerificationNotificationCo
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->middleware('auth')
                 ->name('logout');
+
+Route::post('/InsertItem', [ItemMaster::class, 'store'])
+                ->middleware('auth')
+                ->name('InsertItem');
+
+
+// Route::post('/InsertItem', [InsertItem::class,'store'] )->name('InsertItem');

@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('itemmaster', function (Blueprint $table) {
+        Schema::create('user_tokens', function (Blueprint $table) {
             $table->id();
-            $table->string("ItemCode")->unique();
-            $table->string("ItemName");
-            $table->float("PurchasePrice")->default(0);
-            $table->float("SellingPrice")->default(0);
-            $table->string("void")->default("1");
+            $table->foreignId('user_id')->references('id')->on('users')->nullable()->constrained();
+            $table->string('token', 128)->unique();
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('itemmaster');
+        //
     }
 };

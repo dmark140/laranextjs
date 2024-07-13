@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inventory', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("fid");
-            $table->foreign("fid")->references("id")->on("itemmaster");
-            $table->float("Quantity");
-            $table->string("TransactionType");
-            $table->string("void")->default("1");
             $table->timestamps();
+            $table->string('title');
+            $table->text('body');
         });
     }
 
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inventory');
+        Schema::dropIfExists('posts');
     }
 };
